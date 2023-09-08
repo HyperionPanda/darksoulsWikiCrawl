@@ -98,13 +98,14 @@ def ConnectedLinks(website):
         except Exception as e:
             continue
         break
+    #Print out all links found in a list
     deepdive.remove("")
     print(deepdive)
     print(len(deepdive))
     SortLinks(deepdive)
-    
-#ConnectedLinks("https://darksouls3.wiki.fextralife.com/")
+
 #======================================================================================================================================================
+#Sort the links found in ConnectedLinks into categories based on the text present in the body of each link
 def SortLinks(usedlist):
     global found
     global weapon
@@ -121,7 +122,9 @@ def SortLinks(usedlist):
                    "M":"Miracle","A":"Armor"}
     
     attachment = "https://darksouls3.wiki.fextralife.com"
-    countertime = 0 
+    countertime = 0
+
+    #Visit each link and seperate the main body text into a variable
     for item in usedlist:
         found = False
         try:
@@ -140,14 +143,14 @@ def SortLinks(usedlist):
                 for script in soup(["script", "style"]):
                     script.extract()   
 
-                    # get text
+                # get text
                 text = soup.get_text()
 
-                    # break into lines and remove leading and trailing space on each
+                # break into lines and remove leading and trailing space on each
                 lines = (line.strip() for line in text.splitlines())
-                    # break multi-headlines into a line each
+                # break multi-headlines into a line each
                 chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
-                    # drop blank lines
+                # drop blank lines
         
                 text = '\n'.join(chunk for chunk in chunks if chunk)
                 #print("\n" + text)
@@ -172,7 +175,7 @@ def SortLinks(usedlist):
 
                 #Spells and Armor works, not weapons, shields, rings, etc
                 placeholder = ""
-                #forWeapon = ""
+              
 
                 #This is meant to find identifying factor
                 for word in words:
