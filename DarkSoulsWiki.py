@@ -1,29 +1,26 @@
 
-#use webbrowser.open(url,new =1), new = 0 opens in same browser window,
-#new = 1 opens a new browser window, new = 2 opens in a new tab
 
 import requests
 from bs4 import BeautifulSoup
-import re
-import time
+#import re
+#import time
 import urllib
 from urllib.request import urlopen
 
-import webbrowser
+#import webbrowser
 #======================================================================================================================================================
-
 print("Welcome to my scuffed webcrawler!")
 print("")
-print("Use ConnectedLinks(website) to find all the connected links of a particular website")
-print("   -This is not all links of a website, just the immediate links connected to the given one")
-print("")
-print("Currently not active (or working) below")
-print("Use SoupCheck('https://darksouls3.wiki.fextralife.com/') to view the organized webcrawler")
-print("   -This takes a LOT of time")
+print("Use ConnectedLinks('https://darksouls3.wiki.fextralife.com/') to view the organized webcrawler")
+print("   -This takes a LOT of time, around 20 - 25 min")
 print("   -I am currently working on this part to make it better, faster, and more reliable")
+print("   -This was made so that  I could practice scraping a website with python, and then sort through the data based on how the website was set up.\nFor this reason, this will only work on the dark souls wiki and not any other wiki, because it gets rid of some data based on how the fextralife wiki is set up")
 print("")
-
 #======================================================================================================================================================
+
+#use webbrowser.open(url,new =1), new = 0 opens in same browser window,
+#new = 1 opens a new browser window, new = 2 opens in a new tab
+
 found = False
 weapon = 0
 armour = 0
